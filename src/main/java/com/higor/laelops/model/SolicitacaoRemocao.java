@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "solicitacao_remocao")
 @Getter
 @Setter
 @Builder
@@ -33,14 +33,14 @@ public class SolicitacaoRemocao {
     @Column(nullable = false, length = 20)
     private Canal canalUsado;
 
-    @Convert(converter = CanalConverter.class)
+    @Convert(converter = StatusSolicitacaoConverter.class)
     @Column(nullable = false, length = 20)
     private StatusSolicitacao status;
 
     private boolean consentimentoConfirmado;
     private OffsetDateTime dataEnvio;
     private String observacoes;
-
+    //@Column(name = "criado_em", nullable = false, updatable = false)
     private OffsetDateTime criadoEm;
     @PrePersist
     protected void prePersist() {
