@@ -22,7 +22,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column(nullable = false, length = 150)
+    @Column(length = 150)
     private String nome;
     @Column(nullable = false, unique = true, length = 250)
     private String email;
